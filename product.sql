@@ -554,10 +554,10 @@ I. db.collection.find({
 
 10. Delete the products which product price value are same
 
+  -- deletes all products with the same product_price
 J. db.products.find().forEach(function(doc) {db.products.remove({_id: { $ne: doc._id }, product_price: doc.product_price}) })
 
-  -- deletes all products with the same product_price
 
-  db.products.find().forEach(function(doc) {db.products.remove({_id: { $ne: doc._id }, product_price: doc.product_price}) })
 
   -- deletes only last (whose id is greater) products with same product_price
+  db.products.find().forEach(function (doc) {   db.collection.remove({ _id: { $gt: doc._id }, product_price: doc.product_price }) });
